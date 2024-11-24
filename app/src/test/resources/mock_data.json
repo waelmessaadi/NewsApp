@@ -1,0 +1,19 @@
+{
+  "status": "ok",
+  "totalResults": 2,
+  "articles": [
+    {
+      "source": {
+        "id": null,
+        "name": "Example News"
+      },
+      "author": "John Doe",
+      "title": "Example Article Title",
+      "description": "This is an example of a news article description.",
+      "url": "https://www.example.com/news/article1",
+      "urlToImage": "https://www.example.com/image1.jpg",
+      "publishedAt": "2024-11-23T12:00:00Z",
+      "content": "This is the content of the article."
+    }
+  ]
+}
