@@ -4,12 +4,9 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.instant.newsapp.domain.model.Article
 import com.instant.newsapp.util.Resource
 import com.instant.newsapp.domain.usecases.GetNewsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -23,7 +20,7 @@ open class NewsListViewModel @Inject constructor(
     open val state: State<NewsListState> = _state
 
     init {
-        getNews()
+        this.getNews()
     }
 
     open fun getNews() {

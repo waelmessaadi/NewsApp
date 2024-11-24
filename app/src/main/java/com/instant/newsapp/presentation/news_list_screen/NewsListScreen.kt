@@ -35,8 +35,6 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.google.gson.Gson
-import com.instant.newsapp.domain.model.Article
-import com.instant.newsapp.presentation.Screen
 import com.instant.newsapp.presentation.news_list_screen.component.NewsListItem
 import timber.log.Timber
 import java.net.URLEncoder
@@ -114,33 +112,6 @@ fun NewsListScreen (
             CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
         }
     }
-   /* val state = viewModel.state.value
-    Box(modifier = Modifier.fillMaxSize()) {
-        LazyColumn(modifier = Modifier.fillMaxSize()) {
-            items(state.news) { new ->
-                NewsListItem(
-                    article = new,
-                    onItemClick = {
-//                        navController.navigate(Screen.CoinDetailScreen.route + "/${coin.id}")
-                    }
-                )
-            }
-        }
-        if(state.error.isNotBlank()) {
-            Text(
-                text = state.error,
-                color = MaterialTheme.colorScheme.error,
-                textAlign = TextAlign.Center,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 20.dp)
-                    .align(Alignment.Center)
-            )
-        }
-        if(state.isLoading) {
-            CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
-        }
-    }*/
 }
 
 @Composable
@@ -178,22 +149,5 @@ fun SearchBar(
                     .padding(horizontal = 20.dp, vertical = 12.dp)
             )
         }
-    /*TextField(
-        value = searchText,
-        onValueChange = onTextChange,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp),
-        placeholder = { Text("Rechercher...") },
-        singleLine = true
-    )*/
-    }
-}
-
-fun encodeParam(param: String?): String {
-    return if (param != null) {
-        URLEncoder.encode(param, StandardCharsets.UTF_8.toString())
-    } else {
-        ""
     }
 }

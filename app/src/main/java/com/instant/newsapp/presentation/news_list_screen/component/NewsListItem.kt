@@ -23,8 +23,6 @@ import coil3.compose.AsyncImage
 import com.instant.newsapp.R
 import com.instant.newsapp.domain.model.Article
 import com.instant.newsapp.presentation.ui.theme.textSizeBase
-import com.instant.newsapp.presentation.ui.theme.textSizeLarge
-import com.instant.newsapp.presentation.ui.theme.textSizeSmall
 
 @Composable
 fun NewsListItem(
