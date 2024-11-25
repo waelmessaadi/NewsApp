@@ -2,8 +2,10 @@ package com.instant.newsapp.presentation.news_list_screen
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.instant.newsapp.R
 import com.instant.newsapp.util.Resource
 import com.instant.newsapp.domain.usecases.GetNewsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel

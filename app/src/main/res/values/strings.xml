@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">NewsApp</string>
+    <string name="favorite_icon">Favorite icon</string>
+    <string name="go_back">Retour</string>
+    <string name="no_description">No description available.</string>
+    <string name="view_more">Découvrir l\'article complet ici</string>
+    <string name="animated_icon">Icône animée</string>
 </resources>

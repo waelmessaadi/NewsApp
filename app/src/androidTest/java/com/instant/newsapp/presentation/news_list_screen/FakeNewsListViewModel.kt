@@ -1,9 +1,9 @@
 package com.instant.newsapp.presentation.news_list_screen
 
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import com.instant.newsapp.domain.model.Article
+import com.instant.newsapp.domain.usecases.FakeGetNewsUseCase
 
 class FakeNewsListViewModel : NewsListViewModel(getNewsUseCase = FakeGetNewsUseCase()) {
     private val _state = mutableStateOf(NewsListState())

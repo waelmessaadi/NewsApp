@@ -1,7 +1,7 @@
-package com.instant.newsapp.presentation.news_list_screen
+package com.instant.newsapp.domain.usecases
 
 import com.instant.newsapp.domain.model.Article
-import com.instant.newsapp.domain.usecases.GetNewsUseCase
+import com.instant.newsapp.domain.repository.FakeRepository
 import com.instant.newsapp.util.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

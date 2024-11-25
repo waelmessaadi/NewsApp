@@ -32,6 +32,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
@@ -72,7 +73,7 @@ fun NewDetailScreen(article: String?, navController: NavController) {
                     IconButton(onClick = { navController.popBackStack() }) {
                         Icon(
                             imageVector = Icons.Default.ArrowBack,
-                            contentDescription = "Retour"
+                            contentDescription = stringResource(id = R.string.go_back)
                         )
                     }
                 },
@@ -107,7 +108,7 @@ fun NewDetailScreen(article: String?, navController: NavController) {
 
             Text(
                 modifier = Modifier.padding(start = 16.dp, end = 16.dp),
-                text = newArticle.description ?: "No description available.",
+                text = newArticle.description ?: stringResource(id = R.string.no_description),
                 style = textSizeSmall
             )
 
@@ -116,7 +117,7 @@ fun NewDetailScreen(article: String?, navController: NavController) {
             newArticle.url?.let {
                 ClickableText(
                     modifier = Modifier.padding(start = 16.dp, end = 16.dp),
-                    text = AnnotatedString("Découvrir l'article complet ici"),
+                    text = AnnotatedString(stringResource(id = R.string.view_more)),
                     style = MaterialTheme.typography.bodySmall.copy(
                         color = MaterialTheme.colorScheme.primary,
                         textDecoration = TextDecoration.Underline
@@ -152,7 +153,7 @@ fun AddToFavoritesButton(
     ) {
         Icon(
             imageVector = if (isClicked) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
-            contentDescription = "Icône animée",
+            contentDescription = stringResource(id = R.string.animated_icon),
             tint = if (isClicked) Color.Red else Color.Gray
         )
     }

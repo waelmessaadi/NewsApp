@@ -29,16 +29,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.google.gson.Gson
+import com.instant.newsapp.R
 import com.instant.newsapp.presentation.news_list_screen.component.NewsListItem
+import com.instant.newsapp.presentation.ui.theme.textSizeSmall
 import timber.log.Timber
 import java.net.URLEncoder
-import java.nio.charset.StandardCharsets
 
 @Composable
 fun NewsListScreen (
@@ -56,12 +58,13 @@ fun NewsListScreen (
         Column(modifier = Modifier.fillMaxSize()) {
             Spacer(modifier = Modifier.height(50.dp))
             Row( modifier = Modifier
-                    .fillMaxWidth()
+                .fillMaxWidth()
                 .padding(16.dp),
             horizontalArrangement = Arrangement.SpaceBetween) {
                 SearchBar(
-                    modifier = Modifier.weight(9f)
-                    .padding(end = 8.dp),
+                    modifier = Modifier
+                        .weight(9f)
+                        .padding(end = 8.dp),
                     hint = "Recherche..",
                     searchText = searchText,
                     onTextChange = { searchText = it }
@@ -69,7 +72,7 @@ fun NewsListScreen (
 
                 Icon(
                     imageVector = Icons.Default.Bookmarks,
-                    contentDescription = "Favorite Icon",
+                    contentDescription = stringResource(id = R.string.favorite_icon),
                     modifier = Modifier
                         .weight(1f)
                         .size(32.dp)
@@ -77,7 +80,7 @@ fun NewsListScreen (
                 )
             }
             LazyColumn(modifier = Modifier.fillMaxSize()) {
-                items(filteredNews) { article ->
+                items(filteredNews, key = { article -> article.url!! }) { article ->
                     NewsListItem(
                         article = article,
                         onItemClick = {
@@ -145,6 +148,7 @@ fun SearchBar(
             Text(
                 text = hint,
                 color = Color.LightGray,
+                style = textSizeSmall,
                 modifier = Modifier
                     .padding(horizontal = 20.dp, vertical = 12.dp)
             )

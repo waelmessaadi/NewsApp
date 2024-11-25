@@ -102,6 +102,7 @@ dependencies {
     kapt(libs.dagger.hiltCompiler)
     kapt(libs.androidx.hiltCompiler)
     implementation(libs.androidx.hilt.navigationCompose)
+    androidTestImplementation(libs.dagger.hiltTesting)
 
     testImplementation(libs.junit)
     testImplementation(libs.mockk)

@@ -1,7 +1,6 @@
-package com.instant.newsapp.presentation.news_list_screen
+package com.instant.newsapp.domain.repository
 
 import com.instant.newsapp.domain.model.Article
-import com.instant.newsapp.domain.repository.Repository
 
 class FakeRepository : Repository {
     override suspend fun getNews(): List<Article> {

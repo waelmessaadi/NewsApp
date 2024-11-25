@@ -1,4 +1,5 @@
-import com.instant.newsapp.data.remote.ApiService
+package com.instant.newsapp.data.remote
+
 import com.instant.newsapp.util.MockResponseFileReader
 import okhttp3.mockwebserver.MockWebServer
 import okhttp3.mockwebserver.MockResponse
