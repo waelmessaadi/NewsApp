@@ -13,6 +13,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.google.gson.Gson
 import com.instant.newsapp.domain.model.Article
+import com.instant.newsapp.presentation.favorite_news_list_screen.FavoriteNewsListScreen
 import com.instant.newsapp.presentation.news_list_screen.NewsListScreen
 import com.instant.newsapp.presentation.new_detail_screen.NewDetailScreen
 import com.instant.newsapp.presentation.ui.theme.NewsAppTheme
@@ -25,6 +26,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
 
+            // Setting up the navigation graph for the News app with screens for news list, favorite news, and article details.
             NewsAppTheme {
                 Surface(color = MaterialTheme.colorScheme.background) {
                     val navController = rememberNavController()
@@ -32,11 +34,21 @@ class MainActivity : ComponentActivity() {
                         navController = navController,
                         startDestination = Screen.NewsListScreen.route
                     ) {
+                        // List news composable route
                         composable(
                             route = Screen.NewsListScreen.route
                         ) {
                             NewsListScreen(navController)
                         }
+
+                        // Favorite list composable route
+                        composable(
+                            route = Screen.FavoriteNewsListScreen.route
+                        ) {
+                            FavoriteNewsListScreen(navController)
+                        }
+
+                        // Detail new screen composable route
                         composable(
                             route = Screen.NewDetailScreen.route,
                             arguments = listOf(navArgument("article") { type = NavType.StringType })

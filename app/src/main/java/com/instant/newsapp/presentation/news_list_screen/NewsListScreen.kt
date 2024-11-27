@@ -1,6 +1,7 @@
 package com.instant.newsapp.presentation.news_list_screen
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -29,16 +30,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.google.gson.Gson
 import com.instant.newsapp.R
+import com.instant.newsapp.presentation.Screen
 import com.instant.newsapp.presentation.news_list_screen.component.NewsListItem
 import com.instant.newsapp.presentation.ui.theme.textSizeSmall
+import com.instant.newsapp.util.CommonMethods
 import timber.log.Timber
 import java.net.URLEncoder
 
@@ -47,20 +53,31 @@ fun NewsListScreen (
     navController: NavController,
     viewModel: NewsListViewModel = hiltViewModel()
 ) {
+
+    // Retrieve result from viewModel
     val state = viewModel.state.value
     var searchText by remember { mutableStateOf("") }
 
+    // Using to refresh result
+    val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = state.isLoading)
+
+    // To filter result when taping text in searchBar
     val filteredNews = state.news.filter {
         it.title!!.contains(searchText, ignoreCase = true)
     }
 
+    // Treatment possible cases of result
+    // success : using itemListNews to display the list of news
+    // error : display centred text, loading display circularProgress
     Box(modifier = Modifier.fillMaxSize()) {
         Column(modifier = Modifier.fillMaxSize()) {
             Spacer(modifier = Modifier.height(50.dp))
-            Row( modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            horizontalArrangement = Arrangement.SpaceBetween) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
                 SearchBar(
                     modifier = Modifier
                         .weight(9f)
@@ -77,10 +94,18 @@ fun NewsListScreen (
                         .weight(1f)
                         .size(32.dp)
                         .align(Alignment.CenterVertically)
+                        .clickable {
+                            navController.navigate(Screen.FavoriteNewsListScreen.route)
+                        }
                 )
             }
-            LazyColumn(modifier = Modifier.fillMaxSize()) {
-                items(filteredNews, key = { article -> article.url!! }) { article ->
+            SwipeRefresh(
+                state = swipeRefreshState,
+                onRefresh = {
+                    viewModel.checkConnectionAndSync()
+                },
+            ) {   LazyColumn(modifier = Modifier.fillMaxSize()) {
+                items(filteredNews, key = { article -> article.id }) { article ->
                     NewsListItem(
                         article = article,
                         onItemClick = {
@@ -97,6 +122,7 @@ fun NewsListScreen (
                     )
                 }
             }
+        }
         }
 
         if (state.error.isNotBlank()) {

@@ -1,6 +1,5 @@
 package com.instant.newsapp.data.remote.dto
 
-
 data class ArticleDto(
     var author: String?,
     var content: String?,

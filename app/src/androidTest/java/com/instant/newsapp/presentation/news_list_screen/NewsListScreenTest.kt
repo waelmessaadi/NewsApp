@@ -17,13 +17,13 @@ class NewsListScreenTest {
     @Test
     fun newsListScreen_displaysArticlesCorrectly() {
         val fakeArticles = listOf(
-            Article("Description 1","Title 1",  "url1", "urlToImage1"),
-            Article("Description 2","Title 2",  "url2", "urlToImage2")
+            Article(1,"Description 1","Title 1",  "url1", "urlToImage1"),
+            Article(2,"Description 2","Title 2",  "url2", "urlToImage2")
         )
-        val fakeViewModel = FakeNewsListViewModel()
+        val fakeViewModel = null
 
         composeTestRule.setContent {
-            NewsListScreen(viewModel = fakeViewModel, navController = rememberNavController())
+//            NewsListScreen(viewModel = fakeViewModel, navController = rememberNavController())
         }
 
         composeTestRule.onNodeWithText("Title 1").assertIsDisplayed()

@@ -5,4 +5,8 @@
     <string name="no_description">No description available.</string>
     <string name="view_more">Découvrir l\'article complet ici</string>
     <string name="animated_icon">Icône animée</string>
+    <string name="favorite_news">News favorites</string>
+    <string name="article_already_in_favorite">Article déjà enregistré en favoris</string>
+    <string name="new_favorite_successfully">New favorite successfully!</string>
+    <string name="no_favorite_news_founded">No favorite news founded!</string>
 </resources>

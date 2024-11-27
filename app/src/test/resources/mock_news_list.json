@@ -1,0 +1,14 @@
+[
+  {
+    "description": "This is an example of a news article description1.",
+    "title": "Example Article Title1",
+    "url": "https://www.example.com/news/article1",
+    "urlToImage": "https://www.example.com/image1.jpg"
+  },
+  {
+    "description": "This is an example of a news article description2.",
+    "title": "Example Article Title2",
+    "url": "https://www.example.com/news/article1",
+    "urlToImage": "https://www.example.com/image1.jpg"
+  }
+]

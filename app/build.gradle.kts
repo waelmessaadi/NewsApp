@@ -66,6 +66,7 @@ kapt {
 
 dependencies {
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.core.testing)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
@@ -73,6 +74,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.foundation)
     implementation(libs.material.icons.extended)
 
     // Retrofit
@@ -94,6 +96,7 @@ dependencies {
     // Coil
     implementation(libs.coil)
     implementation(libs.accompanist.coil)
+    implementation(libs.accompanist.swiperefresh)
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
 
@@ -102,13 +105,23 @@ dependencies {
     kapt(libs.dagger.hiltCompiler)
     kapt(libs.androidx.hiltCompiler)
     implementation(libs.androidx.hilt.navigationCompose)
-    androidTestImplementation(libs.dagger.hiltTesting)
+    testImplementation(libs.dagger.hiltTesting)
+
+    // Room
+    implementation(libs.androidx.room.runtime)
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.work.runtime)
 
     testImplementation(libs.junit)
     testImplementation(libs.mockk)
     testImplementation(libs.junit.jupiter.api)
     testImplementation(libs.junit.jupiter.engine)
+    testImplementation(libs.junit.jupiter.params)
+    testImplementation(libs.mockito.junit.jupiter)
     testImplementation(libs.kotlin.test.junit)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.inline)
     testImplementation(libs.kotlinx.coroutinesTest)
     testImplementation(libs.mockwebserver)
     androidTestImplementation(libs.androidx.junit)

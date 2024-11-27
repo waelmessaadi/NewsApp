@@ -1,13 +1,14 @@
 package com.instant.newsapp.di
 
-import android.annotation.SuppressLint
-import android.util.Log
 import com.instant.newsapp.BuildConfig
 import okhttp3.HttpUrl
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.util.Locale
 
+/**
+ * Interceptor for adding authentication and language parameters to Api request.
+ */
 class AuthAndLangInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val language = Locale.getDefault().language
