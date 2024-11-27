@@ -60,5 +60,5 @@ Les **Kotlin Coroutines** sont utilisées pour simplifier la gestion de l’asyn
   
 ## Temps de Travail
 
-Le développement de cette application a duré **environ 12 heures, réparties sur 3 sessions de travail distinctes**. Ce temps a été consacré à la conception, à l’implémentation de l’architecture, à la gestion des appels réseau, à la mise en place des tests, ainsi qu’à l’optimisation de l’interface utilisateur.
+Le développement de cette application a duré **environ 20 heures de travail**. Ce temps a été consacré à la conception, à l’implémentation de l’architecture, à la gestion des appels réseau, à la mise en place des tests, ainsi qu’à l’optimisation de l’interface utilisateur.
 
